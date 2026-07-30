@@ -10,29 +10,69 @@ html {
     width: 6px;
 }
 ::-webkit-scrollbar-track {
-    background: #09090b;
+    background: transparent;
 }
 ::-webkit-scrollbar-thumb {
     background: #10b981;
     border-radius: 3px;
 }
 
-/* Background Grid Pattern */
+/* Dynamic Light & Dark Grid Background */
 .grid-bg {
     background-size: 36px 36px;
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px), 
+        linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+}
+
+.dark .grid-bg {
     background-image: 
         linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), 
         linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
 
-/* Dynamic Gradient Text */
+/* Gradient Text */
 .text-gradient {
-    background: linear-gradient(135deg, #10b981 0%, #34d399 50%, #059669 100%);
+    background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* Custom Glow Card Mouse Effect */
+/* Glow Pulse Dot for Available Status */
+@keyframes neonGlowPulse {
+    0%, 100% {
+        box-shadow: 0 0 6px #10b981, 0 0 12px #10b981;
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 2px #10b981, 0 0 4px #10b981;
+        transform: scale(0.85);
+    }
+}
+.glow-pulse-dot {
+    animation: neonGlowPulse 1.8s infinite ease-in-out;
+}
+
+/* Scroll Mouse Dot Animation (Matching Image 1) */
+@keyframes scrollDotAnim {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    80% {
+        transform: translateY(12px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+}
+.animate-scroll-dot {
+    animation: scrollDotAnim 1.6s infinite cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Mouse Glow Effect for Cards */
 .glow-card {
     position: relative;
     transition: transform 0.3s ease, border-color 0.3s ease;
@@ -54,7 +94,7 @@ html {
     opacity: 1;
 }
 
-/* Navigation Links Effect */
+/* Nav Links Underline */
 .nav-link {
     position: relative;
 }
@@ -72,7 +112,7 @@ html {
     width: 100%;
 }
 
-/* Animations */
+/* Custom Animations */
 @keyframes spinSlow {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
@@ -82,14 +122,13 @@ html {
 }
 
 @keyframes floatAnim {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, -8px); }
 }
 .float-anim {
     animation: floatAnim 4s ease-in-out infinite;
 }
 
-/* Cursor Blink Effect */
 .cursor-blink {
     animation: blink 1s infinite;
 }
@@ -98,7 +137,6 @@ html {
     50% { opacity: 0; }
 }
 
-/* Smooth Scroll Reveal */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -109,7 +147,7 @@ html {
     transform: translateY(0);
 }
 
-/* Custom Dynamic Cursor */
+/* Custom Dynamic Mouse Cursor */
 .cursor-dot {
     width: 8px;
     height: 8px;
@@ -134,7 +172,7 @@ html {
     transition: transform 0.15s ease-out;
 }
 
-/* Toast Animation */
+/* Toast Message */
 .toast {
     transform: translateY(100px);
     opacity: 0;
