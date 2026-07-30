@@ -1,55 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html {
     scroll-behavior: smooth;
 }
+
 ::-webkit-scrollbar {
     width: 6px;
 }
 ::-webkit-scrollbar-track {
-    background: #0a0a0a;
+    background: #09090b;
 }
 ::-webkit-scrollbar-thumb {
-    background: #dc2626;
+    background: #10b981;
     border-radius: 3px;
 }
-::selection {
-    background: rgba(220, 38, 38, .3);
-    color: #fff;
+
+/* Background Grid Pattern */
+.grid-bg {
+    background-size: 36px 36px;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), 
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
+
+/* Dynamic Gradient Text */
 .text-gradient {
-    background: linear-gradient(135deg, #ef4444, #f87171 50%, #dc2626);
+    background: linear-gradient(135deg, #10b981 0%, #34d399 50%, #059669 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
-.grid-bg {
-    background-size: 40px 40px;
-    background-image: linear-gradient(rgba(255, 255, 255, .02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .02) 1px, transparent 1px);
+
+/* Custom Glow Card Mouse Effect */
+.glow-card {
+    position: relative;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
-.reveal {
+
+.glow-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(16, 185, 129, 0.25), transparent 40%);
+    pointer-events: none;
     opacity: 0;
-    transform: translateY(30px);
-    transition: all .8s cubic-bezier(.16, 1, .3, 1);
+    transition: opacity 0.3s ease;
 }
-.reveal.active {
+
+.glow-card:hover::before {
     opacity: 1;
-    transform: translateY(0);
 }
-.reveal-right {
-    opacity: 0;
-    transform: translateX(30px);
-    transition: all .8s cubic-bezier(.16, 1, .3, 1);
-}
-.reveal-right.active {
-    opacity: 1;
-    transform: translateX(0);
-}
-@keyframes pulse-dot {
-    0%, 100% { opacity: 1; }
-    50% { opacity: .3; }
-}
-.pulse-dot {
-    animation: pulse-dot 2s ease-in-out infinite;
-}
+
+/* Navigation Links Effect */
 .nav-link {
     position: relative;
 }
@@ -60,36 +65,80 @@ html {
     left: 0;
     width: 0;
     height: 2px;
-    background: #dc2626;
-    transition: width .3s ease;
+    background: #10b981;
+    transition: width 0.3s ease;
 }
 .nav-link:hover::after, .nav-link.active::after {
     width: 100%;
 }
+
+/* Animations */
+@keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+    animation: spinSlow 15s linear infinite;
+}
+
+@keyframes floatAnim {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+.float-anim {
+    animation: floatAnim 4s ease-in-out infinite;
+}
+
+/* Cursor Blink Effect */
+.cursor-blink {
+    animation: blink 1s infinite;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Smooth Scroll Reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Custom Dynamic Cursor */
 .cursor-dot {
     width: 8px;
     height: 8px;
-    background: #dc2626;
+    background: #10b981;
     border-radius: 50%;
     position: fixed;
+    top: 0;
+    left: 0;
     pointer-events: none;
     z-index: 99999;
-    transition: transform .15s ease;
 }
 .cursor-ring {
     width: 36px;
     height: 36px;
-    border: 1.5px solid rgba(220, 38, 38, .5);
+    border: 1.5px solid rgba(16, 185, 129, 0.6);
     border-radius: 50%;
     position: fixed;
+    top: 0;
+    left: 0;
     pointer-events: none;
     z-index: 99998;
-    transition: all .3s ease;
+    transition: transform 0.15s ease-out;
 }
+
+/* Toast Animation */
 .toast {
     transform: translateY(100px);
     opacity: 0;
-    transition: all .5s cubic-bezier(.16, 1, .3, 1);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .toast.show {
     transform: translateY(0);
