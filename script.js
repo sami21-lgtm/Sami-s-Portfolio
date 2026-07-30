@@ -1,4 +1,20 @@
-// 1. Dynamic Typing Text Effect
+// Theme Toggle Switcher (Guaranteed Working Fix)
+const themeToggleBtn = document.getElementById('themeToggle');
+
+if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.contains('dark');
+        if (isDark) {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+}
+
+// Typing Text Effect
 const phrases = [
     "Front-End Developer",
     "Competitive Programmer",
@@ -27,7 +43,7 @@ function typeEffect() {
     let typeSpeed = isDeleting ? 40 : 80;
 
     if (!isDeleting && charIndex === currentPhrase.length) {
-        typeSpeed = 2000; // Pause at full word
+        typeSpeed = 2000;
         isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
@@ -42,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(typeEffect, 1000);
 });
 
-// 2. Interactive Radial Glow Following Mouse on Cards
+// Card Glow Radial Mouse Tracking
 document.querySelectorAll(".glow-card").forEach(card => {
     card.addEventListener("mousemove", e => {
         const rect = card.getBoundingClientRect();
@@ -53,7 +69,7 @@ document.querySelectorAll(".glow-card").forEach(card => {
     });
 });
 
-// 3. Custom Follow Cursor
+// Custom Cursor Following
 const dot = document.getElementById("cursorDot");
 const ring = document.getElementById("cursorRing");
 
@@ -64,7 +80,7 @@ if (dot && ring) {
     });
 }
 
-// 4. Scroll Reveal via IntersectionObserver
+// Scroll Reveal
 const observerOptions = { threshold: 0.15 };
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -76,17 +92,17 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-// 5. Navbar Sticky Shrink & Active Highlight
+// Sticky Nav & Link Highlight
 const nav = document.getElementById('navbar');
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav-link');
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
-        nav.classList.add('bg-neutral-950/95', 'backdrop-blur-xl', 'border-b', 'border-neutral-800', 'h-16');
+        nav.classList.add('h-16');
         nav.classList.remove('h-20');
     } else {
-        nav.classList.remove('bg-neutral-950/95', 'backdrop-blur-xl', 'border-b', 'border-neutral-800', 'h-16');
+        nav.classList.remove('h-16');
         nav.classList.add('h-20');
     }
 
@@ -99,14 +115,14 @@ window.addEventListener('scroll', () => {
     });
 
     navLinks.forEach(l => {
-        l.classList.remove('active', 'text-emerald-400');
+        l.classList.remove('active');
         if (l.getAttribute('href') === `#${currentSection}`) {
-            l.classList.add('active', 'text-emerald-400');
+            l.classList.add('active');
         }
     });
 });
 
-// 6. Mobile Menu Logic
+// Mobile Menu Toggle
 const mBtn = document.getElementById('mobileBtn');
 const mMenu = document.getElementById('mobileMenu');
 const l1 = document.getElementById('l1');
@@ -137,7 +153,7 @@ function toggleMenu() {
 if (mBtn) mBtn.addEventListener('click', toggleMenu);
 mLinks.forEach(l => l.addEventListener('click', () => { if (!mMenu.classList.contains('opacity-0')) toggleMenu(); }));
 
-// 7. Project Filtering System
+// Projects Filter
 const fBtns = document.querySelectorAll('.filter-btn');
 const pItems = document.querySelectorAll('#projectsGrid > div');
 
@@ -145,7 +161,7 @@ fBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         fBtns.forEach(b => {
             b.classList.remove('bg-emerald-500', 'text-neutral-950');
-            b.classList.add('text-neutral-400');
+            b.classList.add('text-neutral-600', 'dark:text-neutral-400');
         });
         btn.classList.add('bg-emerald-500', 'text-neutral-950');
 
@@ -162,7 +178,7 @@ fBtns.forEach(btn => {
     });
 });
 
-// 8. Contact Form Handling
+// Contact Form Handler
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', e => {
