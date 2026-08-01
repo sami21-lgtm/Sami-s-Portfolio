@@ -52,7 +52,7 @@ html {
     animation: neonGlowPulse 1.8s infinite ease-in-out;
 }
 
-/* Skill Matrix Glowing Block Segment Styling (RESPONSIVE FIXED) */
+/* Skill Matrix Glowing Block Segment Styling */
 .skill-block {
     width: 12px;
     height: 12px;
