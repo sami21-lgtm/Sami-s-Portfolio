@@ -5,6 +5,7 @@
 html {
     scroll-behavior: smooth;
 }
+
 ::-webkit-scrollbar {
     width: 6px;
 }
@@ -51,17 +52,26 @@ html {
     animation: neonGlowPulse 1.8s infinite ease-in-out;
 }
 
-/* Skill Matrix Glowing Block Segment Styling */
+/* Skill Matrix Glowing Block Segment Styling (RESPONSIVE FIXED) */
 .skill-block {
-    width: 18px;
-    height: 18px;
-    border-radius: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
     display: inline-block;
     transition: all 0.3s ease;
+    flex-shrink: 0;
 }
+@media (min-width: 640px) {
+    .skill-block {
+        width: 16px;
+        height: 16px;
+        border-radius: 4px;
+    }
+}
+
 .skill-block.active {
     background: #10b981;
-    box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+    box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
     border: 1px solid #34d399;
 }
 .skill-block.inactive {
@@ -127,6 +137,7 @@ html {
 .animate-spin-slow {
     animation: spinSlow 15s linear infinite;
 }
+
 @keyframes floatAnim {
     0%, 100% { transform: translate(-50%, 0); }
     50% { transform: translate(-50%, -8px); }
@@ -134,6 +145,7 @@ html {
 .float-anim {
     animation: floatAnim 4s ease-in-out infinite;
 }
+
 .cursor-blink {
     animation: blink 1s infinite;
 }
@@ -141,6 +153,7 @@ html {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
+
 .reveal {
     opacity: 0;
     transform: translateY(30px);
