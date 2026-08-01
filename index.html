@@ -57,6 +57,7 @@
                 <a href="#home" class="nav-link text-xs font-semibold tracking-wider uppercase text-neutral-700 dark:text-neutral-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors active">HOME</a>
                 <a href="#cv-section" class="nav-link text-xs font-semibold tracking-wider uppercase text-neutral-700 dark:text-neutral-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">CV</a>
                 <a href="#about" class="nav-link text-xs font-semibold tracking-wider uppercase text-neutral-700 dark:text-neutral-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">ABOUT ME</a>
+                <a href="#skills-section" class="nav-link text-xs font-semibold tracking-wider uppercase text-neutral-700 dark:text-neutral-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">SKILL MATRIX</a>
                 <a href="#projects" class="nav-link text-xs font-semibold tracking-wider uppercase text-neutral-700 dark:text-neutral-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">PROJECTS</a>
                 <a href="#certifications" class="nav-link text-xs font-semibold tracking-wider uppercase text-neutral-700 dark:text-neutral-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">CERTIFICATES</a>
                 <a href="#contact" class="nav-link text-xs font-semibold tracking-wider uppercase text-neutral-700 dark:text-neutral-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">CONTACT</a>
@@ -86,6 +87,7 @@
     <a href="#home" class="text-xl font-bold text-neutral-900 dark:text-white hover:text-emerald-500 transition-colors m-link">HOME</a>
     <a href="#cv-section" class="text-xl font-bold text-neutral-900 dark:text-white hover:text-emerald-500 transition-colors m-link">CV</a>
     <a href="#about" class="text-xl font-bold text-neutral-900 dark:text-white hover:text-emerald-500 transition-colors m-link">ABOUT ME</a>
+    <a href="#skills-section" class="text-xl font-bold text-neutral-900 dark:text-white hover:text-emerald-500 transition-colors m-link">SKILL MATRIX</a>
     <a href="#projects" class="text-xl font-bold text-neutral-900 dark:text-white hover:text-emerald-500 transition-colors m-link">PROJECTS</a>
     <a href="#certifications" class="text-xl font-bold text-neutral-900 dark:text-white hover:text-emerald-500 transition-colors m-link">CERTIFICATES</a>
     <a href="#contact" class="text-xl font-bold text-neutral-900 dark:text-white hover:text-emerald-500 transition-colors m-link">CONTACT</a>
@@ -283,7 +285,7 @@
     </div>
 </section>
 
-<!-- About Section (WITH UPDATED HIGH-TECH SPECIFICATION TABLE) -->
+<!-- About Section -->
 <section id="about" class="py-24 border-t border-neutral-300 dark:border-neutral-800 relative">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="grid lg:grid-cols-12 gap-12 items-center">
@@ -310,7 +312,7 @@
                 </div>
             </div>
 
-            <!-- UPDATED DEVELOPER SPECIFICATIONS CARD / TABLE -->
+            <!-- DEVELOPER SPECIFICATIONS TABLE -->
             <div class="lg:col-span-7 reveal">
                 <div class="glow-card rounded-2xl bg-white/70 dark:bg-neutral-900/50 border border-neutral-300 dark:border-neutral-800/80 shadow-2xl backdrop-blur-xl overflow-hidden">
                     
@@ -327,52 +329,33 @@
 
                     <!-- Modern Specs Table Grid -->
                     <div class="divide-y divide-neutral-200/80 dark:divide-neutral-800/80 text-xs font-mono">
-                        
-                        <!-- Role -->
                         <div class="grid grid-cols-12 p-3.5 sm:p-4 hover:bg-neutral-100/60 dark:hover:bg-neutral-800/30 transition-colors items-center gap-2">
                             <div class="col-span-4 sm:col-span-3 flex items-center gap-2.5 font-bold text-neutral-800 dark:text-neutral-200">
-                                <span class="p-1.5 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
-                                    <span class="iconify" data-icon="lucide:briefcase" data-width="15"></span>
-                                </span>
+                                <span class="p-1.5 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20"><span class="iconify" data-icon="lucide:briefcase" data-width="15"></span></span>
                                 <span>Role</span>
                             </div>
-                            <div class="col-span-8 sm:col-span-9 text-neutral-800 dark:text-neutral-100 font-semibold text-sm">
-                                Full Stack Developer
-                            </div>
+                            <div class="col-span-8 sm:col-span-9 text-neutral-800 dark:text-neutral-100 font-semibold text-sm">Full Stack Developer</div>
                         </div>
 
-                        <!-- Interest -->
                         <div class="grid grid-cols-12 p-3.5 sm:p-4 hover:bg-neutral-100/60 dark:hover:bg-neutral-800/30 transition-colors items-center gap-2">
                             <div class="col-span-4 sm:col-span-3 flex items-center gap-2.5 font-bold text-neutral-800 dark:text-neutral-200">
-                                <span class="p-1.5 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
-                                    <span class="iconify" data-icon="lucide:bot" data-width="15"></span>
-                                </span>
+                                <span class="p-1.5 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20"><span class="iconify" data-icon="lucide:bot" data-width="15"></span></span>
                                 <span>Interest</span>
                             </div>
-                            <div class="col-span-8 sm:col-span-9 text-neutral-800 dark:text-neutral-100 font-semibold text-sm">
-                                Artificial Intelligence
-                            </div>
+                            <div class="col-span-8 sm:col-span-9 text-neutral-800 dark:text-neutral-100 font-semibold text-sm">Artificial Intelligence</div>
                         </div>
 
-                        <!-- Focus -->
                         <div class="grid grid-cols-12 p-3.5 sm:p-4 hover:bg-neutral-100/60 dark:hover:bg-neutral-800/30 transition-colors items-center gap-2">
                             <div class="col-span-4 sm:col-span-3 flex items-center gap-2.5 font-bold text-neutral-800 dark:text-neutral-200">
-                                <span class="p-1.5 rounded-lg bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20">
-                                    <span class="iconify" data-icon="lucide:rocket" data-width="15"></span>
-                                </span>
+                                <span class="p-1.5 rounded-lg bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20"><span class="iconify" data-icon="lucide:rocket" data-width="15"></span></span>
                                 <span>Focus</span>
                             </div>
-                            <div class="col-span-8 sm:col-span-9 text-neutral-800 dark:text-neutral-100 font-semibold text-sm">
-                                Modern Web Development
-                            </div>
+                            <div class="col-span-8 sm:col-span-9 text-neutral-800 dark:text-neutral-100 font-semibold text-sm">Modern Web Development</div>
                         </div>
 
-                        <!-- Languages -->
                         <div class="grid grid-cols-12 p-3.5 sm:p-4 hover:bg-neutral-100/60 dark:hover:bg-neutral-800/30 transition-colors items-center gap-2">
                             <div class="col-span-4 sm:col-span-3 flex items-center gap-2.5 font-bold text-neutral-800 dark:text-neutral-200">
-                                <span class="p-1.5 rounded-lg bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20">
-                                    <span class="iconify" data-icon="lucide:code-2" data-width="15"></span>
-                                </span>
+                                <span class="p-1.5 rounded-lg bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20"><span class="iconify" data-icon="lucide:code-2" data-width="15"></span></span>
                                 <span>Languages</span>
                             </div>
                             <div class="col-span-8 sm:col-span-9 flex flex-wrap items-center gap-2">
@@ -384,12 +367,9 @@
                             </div>
                         </div>
 
-                        <!-- Frontend -->
                         <div class="grid grid-cols-12 p-3.5 sm:p-4 hover:bg-neutral-100/60 dark:hover:bg-neutral-800/30 transition-colors items-center gap-2">
                             <div class="col-span-4 sm:col-span-3 flex items-center gap-2.5 font-bold text-neutral-800 dark:text-neutral-200">
-                                <span class="p-1.5 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20">
-                                    <span class="iconify" data-icon="lucide:layout-template" data-width="15"></span>
-                                </span>
+                                <span class="p-1.5 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20"><span class="iconify" data-icon="lucide:layout-template" data-width="15"></span></span>
                                 <span>Frontend</span>
                             </div>
                             <div class="col-span-8 sm:col-span-9 flex flex-wrap items-center gap-2">
@@ -401,12 +381,9 @@
                             </div>
                         </div>
 
-                        <!-- Backend -->
                         <div class="grid grid-cols-12 p-3.5 sm:p-4 hover:bg-neutral-100/60 dark:hover:bg-neutral-800/30 transition-colors items-center gap-2">
                             <div class="col-span-4 sm:col-span-3 flex items-center gap-2.5 font-bold text-neutral-800 dark:text-neutral-200">
-                                <span class="p-1.5 rounded-lg bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20">
-                                    <span class="iconify" data-icon="lucide:server" data-width="15"></span>
-                                </span>
+                                <span class="p-1.5 rounded-lg bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20"><span class="iconify" data-icon="lucide:server" data-width="15"></span></span>
                                 <span>Backend</span>
                             </div>
                             <div class="col-span-8 sm:col-span-9 flex flex-wrap items-center gap-2">
@@ -416,12 +393,9 @@
                             </div>
                         </div>
 
-                        <!-- Database -->
                         <div class="grid grid-cols-12 p-3.5 sm:p-4 hover:bg-neutral-100/60 dark:hover:bg-neutral-800/30 transition-colors items-center gap-2">
                             <div class="col-span-4 sm:col-span-3 flex items-center gap-2.5 font-bold text-neutral-800 dark:text-neutral-200">
-                                <span class="p-1.5 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                                    <span class="iconify" data-icon="lucide:database" data-width="15"></span>
-                                </span>
+                                <span class="p-1.5 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"><span class="iconify" data-icon="lucide:database" data-width="15"></span></span>
                                 <span>Database</span>
                             </div>
                             <div class="col-span-8 sm:col-span-9">
@@ -429,12 +403,9 @@
                             </div>
                         </div>
 
-                        <!-- Tools -->
                         <div class="grid grid-cols-12 p-3.5 sm:p-4 hover:bg-neutral-100/60 dark:hover:bg-neutral-800/30 transition-colors items-center gap-2">
                             <div class="col-span-4 sm:col-span-3 flex items-center gap-2.5 font-bold text-neutral-800 dark:text-neutral-200">
-                                <span class="p-1.5 rounded-lg bg-pink-500/10 text-pink-600 dark:text-pink-400 border border-pink-500/20">
-                                    <span class="iconify" data-icon="lucide:wrench" data-width="15"></span>
-                                </span>
+                                <span class="p-1.5 rounded-lg bg-pink-500/10 text-pink-600 dark:text-pink-400 border border-pink-500/20"><span class="iconify" data-icon="lucide:wrench" data-width="15"></span></span>
                                 <span>Tools</span>
                             </div>
                             <div class="col-span-8 sm:col-span-9 flex flex-wrap items-center gap-2">
@@ -448,12 +419,9 @@
                             </div>
                         </div>
 
-                        <!-- Availability -->
                         <div class="grid grid-cols-12 p-3.5 sm:p-4 bg-emerald-500/10 dark:bg-emerald-500/15 items-center gap-2 border-t-2 border-emerald-500/30">
                             <div class="col-span-4 sm:col-span-3 flex items-center gap-2.5 font-bold text-emerald-700 dark:text-emerald-300">
-                                <span class="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
-                                    <span class="iconify" data-icon="lucide:trending-up" data-width="15"></span>
-                                </span>
+                                <span class="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30"><span class="iconify" data-icon="lucide:trending-up" data-width="15"></span></span>
                                 <span>Availability</span>
                             </div>
                             <div class="col-span-8 sm:col-span-9 flex items-center gap-2.5">
@@ -461,11 +429,217 @@
                                 <span class="font-bold text-emerald-700 dark:text-emerald-300 text-xs sm:text-sm">Open to Internship Opportunities</span>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
 
+        </div>
+    </div>
+</section>
+
+<!-- NEW: HIGH-TECH SKILL MATRIX SECTION (REPLACE PREVIOUS IMAGE WITH FUTURISTIC DESIGN) -->
+<section id="skills-section" class="py-24 border-t border-neutral-300 dark:border-neutral-800">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+            <div>
+                <span class="reveal text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 tracking-widest uppercase">// TECHNICAL COMPETENCY METRICS</span>
+                <h2 class="reveal text-3xl lg:text-5xl font-black tracking-tight mt-2 text-neutral-900 dark:text-white">Skill <span class="text-gradient">Matrix</span></h2>
+            </div>
+            <p class="reveal text-xs font-mono text-neutral-500 max-w-xs">
+                Quantified proficiency ratings based on practical development and algorithmic problem solving.
+            </p>
+        </div>
+
+        <div class="reveal glow-card rounded-2xl bg-white/70 dark:bg-neutral-900/50 border border-neutral-300 dark:border-neutral-800/80 shadow-2xl backdrop-blur-xl overflow-hidden">
+            <!-- Header Bar -->
+            <div class="px-6 py-4 bg-neutral-200/60 dark:bg-neutral-950/80 border-b border-neutral-300 dark:border-neutral-800 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="p-2 rounded-xl bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+                        <span class="iconify" data-icon="lucide:bar-chart-2" data-width="18"></span>
+                    </span>
+                    <div>
+                        <h3 class="text-sm font-mono font-bold text-neutral-900 dark:text-white">Technology Proficiency Assessment</h3>
+                        <p class="text-[10px] font-mono text-neutral-500">Live Telemetry Metrics</p>
+                    </div>
+                </div>
+                <div class="hidden sm:flex items-center gap-2 text-xs font-mono text-emerald-500 font-bold">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 glow-pulse-dot"></span> 100% OPERATIONAL
+                </div>
+            </div>
+
+            <!-- Table Header -->
+            <div class="grid grid-cols-12 px-6 py-3 bg-neutral-100/80 dark:bg-neutral-900/80 border-b border-neutral-300 dark:border-neutral-800 text-[11px] font-mono font-bold text-neutral-500 uppercase tracking-wider">
+                <div class="col-span-6 sm:col-span-5">Technology</div>
+                <div class="col-span-6 sm:col-span-7 flex justify-between items-center">
+                    <span>Proficiency Index</span>
+                    <span class="hidden md:inline text-[10px] text-emerald-600 dark:text-emerald-400">Score (1-5)</span>
+                </div>
+            </div>
+
+            <!-- Matrix Rows with Glowing Blocks -->
+            <div class="divide-y divide-neutral-200/80 dark:divide-neutral-800/80 font-mono text-xs">
+                
+                <!-- HTML -->
+                <div class="grid grid-cols-12 px-6 py-4 hover:bg-emerald-500/5 transition-colors items-center">
+                    <div class="col-span-6 sm:col-span-5 flex items-center gap-3 font-bold text-neutral-900 dark:text-white">
+                        <span class="p-2 rounded-xl bg-orange-500/10 text-orange-500 border border-orange-500/20">
+                            <span class="iconify" data-icon="vscode-icons:file-type-html" data-width="20"></span>
+                        </span>
+                        <span class="text-sm">HTML</span>
+                    </div>
+                    <div class="col-span-6 sm:col-span-7 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                        </div>
+                        <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">5/5 Expert</span>
+                    </div>
+                </div>
+
+                <!-- CSS -->
+                <div class="grid grid-cols-12 px-6 py-4 hover:bg-emerald-500/5 transition-colors items-center">
+                    <div class="col-span-6 sm:col-span-5 flex items-center gap-3 font-bold text-neutral-900 dark:text-white">
+                        <span class="p-2 rounded-xl bg-blue-500/10 text-blue-500 border border-blue-500/20">
+                            <span class="iconify" data-icon="vscode-icons:file-type-css" data-width="20"></span>
+                        </span>
+                        <span class="text-sm">CSS</span>
+                    </div>
+                    <div class="col-span-6 sm:col-span-7 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                        </div>
+                        <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">5/5 Expert</span>
+                    </div>
+                </div>
+
+                <!-- JavaScript -->
+                <div class="grid grid-cols-12 px-6 py-4 hover:bg-emerald-500/5 transition-colors items-center">
+                    <div class="col-span-6 sm:col-span-5 flex items-center gap-3 font-bold text-neutral-900 dark:text-white">
+                        <span class="p-2 rounded-xl bg-amber-500/10 text-amber-500 border border-amber-500/20">
+                            <span class="iconify" data-icon="vscode-icons:file-type-js-official" data-width="20"></span>
+                        </span>
+                        <span class="text-sm">JavaScript</span>
+                    </div>
+                    <div class="col-span-6 sm:col-span-7 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                        </div>
+                        <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">5/5 Expert</span>
+                    </div>
+                </div>
+
+                <!-- React.js -->
+                <div class="grid grid-cols-12 px-6 py-4 hover:bg-emerald-500/5 transition-colors items-center">
+                    <div class="col-span-6 sm:col-span-5 flex items-center gap-3 font-bold text-neutral-900 dark:text-white">
+                        <span class="p-2 rounded-xl bg-cyan-500/10 text-cyan-500 border border-cyan-500/20">
+                            <span class="iconify" data-icon="vscode-icons:file-type-reactjs" data-width="20"></span>
+                        </span>
+                        <span class="text-sm">React.js</span>
+                    </div>
+                    <div class="col-span-6 sm:col-span-7 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                            <span class="skill-block inactive"></span>
+                            <span class="skill-block inactive"></span>
+                        </div>
+                        <span class="text-xs font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md border border-amber-500/20">3/5 Intermediate</span>
+                    </div>
+                </div>
+
+                <!-- Node.js -->
+                <div class="grid grid-cols-12 px-6 py-4 hover:bg-emerald-500/5 transition-colors items-center">
+                    <div class="col-span-6 sm:col-span-5 flex items-center gap-3 font-bold text-neutral-900 dark:text-white">
+                        <span class="p-2 rounded-xl bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+                            <span class="iconify" data-icon="vscode-icons:file-type-node" data-width="20"></span>
+                        </span>
+                        <span class="text-sm">Node.js</span>
+                    </div>
+                    <div class="col-span-6 sm:col-span-7 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                            <span class="skill-block inactive"></span>
+                            <span class="skill-block inactive"></span>
+                        </div>
+                        <span class="text-xs font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md border border-amber-500/20">3/5 Intermediate</span>
+                    </div>
+                </div>
+
+                <!-- Express.js -->
+                <div class="grid grid-cols-12 px-6 py-4 hover:bg-emerald-500/5 transition-colors items-center">
+                    <div class="col-span-6 sm:col-span-5 flex items-center gap-3 font-bold text-neutral-900 dark:text-white">
+                        <span class="p-2 rounded-xl bg-neutral-500/10 text-neutral-700 dark:text-neutral-300 border border-neutral-500/20">
+                            <span class="iconify" data-icon="simple-icons:express" data-width="20"></span>
+                        </span>
+                        <span class="text-sm">Express.js</span>
+                    </div>
+                    <div class="col-span-6 sm:col-span-7 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                            <span class="skill-block inactive"></span>
+                            <span class="skill-block inactive"></span>
+                        </div>
+                        <span class="text-xs font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md border border-amber-500/20">3/5 Intermediate</span>
+                    </div>
+                </div>
+
+                <!-- MongoDB -->
+                <div class="grid grid-cols-12 px-6 py-4 hover:bg-emerald-500/5 transition-colors items-center">
+                    <div class="col-span-6 sm:col-span-5 flex items-center gap-3 font-bold text-neutral-900 dark:text-white">
+                        <span class="p-2 rounded-xl bg-emerald-600/10 text-emerald-600 border border-emerald-600/20">
+                            <span class="iconify" data-icon="vscode-icons:file-type-mongo" data-width="20"></span>
+                        </span>
+                        <span class="text-sm">MongoDB</span>
+                    </div>
+                    <div class="col-span-6 sm:col-span-7 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                            <span class="skill-block inactive"></span>
+                            <span class="skill-block inactive"></span>
+                        </div>
+                        <span class="text-xs font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md border border-amber-500/20">3/5 Intermediate</span>
+                    </div>
+                </div>
+
+                <!-- AI Engineering -->
+                <div class="grid grid-cols-12 px-6 py-4 hover:bg-emerald-500/5 transition-colors items-center">
+                    <div class="col-span-6 sm:col-span-5 flex items-center gap-3 font-bold text-neutral-900 dark:text-white">
+                        <span class="p-2 rounded-xl bg-purple-500/10 text-purple-500 border border-purple-500/20">
+                            <span class="iconify" data-icon="lucide:bot" data-width="20"></span>
+                        </span>
+                        <span class="text-sm">AI Engineering</span>
+                    </div>
+                    <div class="col-span-6 sm:col-span-7 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                            <span class="skill-block active"></span>
+                        </div>
+                        <span class="text-xs font-bold text-purple-600 dark:text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-md border border-purple-500/20">5/5 Mastery</span>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </section>
