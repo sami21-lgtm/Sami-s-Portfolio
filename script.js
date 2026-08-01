@@ -1,175 +1,218 @@
-// Theme Toggle Switcher
-const themeToggleBtn = document.getElementById('themeToggle');
-if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
-        const isDark = document.documentElement.classList.contains('dark');
-        if (isDark) {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Typing Animation
+    const typedTextSpan = document.getElementById('typed-text');
+    const roles = [
+        "Software Engineer",
+        "Competitive Programmer",
+        "Full-Stack Web Developer",
+        "Robotics Hardware Enthusiast"
+    ];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+        const currentRole = roles[roleIndex];
+        
+        if (isDeleting) {
+            typedTextSpan.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
         } else {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
+            typedTextSpan.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
         }
-    });
-}
 
-// Typing Text Effect
-const phrases = [
-    "Front-End Developer",
-    "Competitive Programmer",
-    "Software Engineering Student",
-    "Robotics Enthusiast"
-];
-let phraseIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-const typedTextSpan = document.getElementById("typed-text");
+        let typeSpeed = isDeleting ? 40 : 80;
 
-function typeEffect() {
-    if (!typedTextSpan) return;
-    const currentPhrase = phrases[phraseIndex];
-    if (isDeleting) {
-        typedTextSpan.textContent = currentPhrase.substring(0, charIndex - 1);
-        charIndex--;
-    } else {
-        typedTextSpan.textContent = currentPhrase.substring(0, charIndex + 1);
-        charIndex++;
-    }
-    let typeSpeed = isDeleting ? 40 : 80;
-    if (!isDeleting && charIndex === currentPhrase.length) {
-        typeSpeed = 2000;
-        isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        typeSpeed = 500;
-    }
-    setTimeout(typeEffect, typeSpeed);
-}
-document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(typeEffect, 1000);
-});
-
-// Radial Glow Mouse Tracker
-document.querySelectorAll(".glow-card").forEach(card => {
-    card.addEventListener("mousemove", e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.setProperty("--mouse-x", `${x}px`);
-        card.style.setProperty("--mouse-y", `${y}px`);
-    });
-});
-
-// Custom Cursor Smooth Tracker
-const dot = document.getElementById("cursorDot");
-const ring = document.getElementById("cursorRing");
-if (dot && ring) {
-    window.addEventListener("mousemove", e => {
-        dot.style.transform = `translate3d(${e.clientX - 4}px, ${e.clientY - 4}px, 0)`;
-        ring.style.transform = `translate3d(${e.clientX - 18}px, ${e.clientY - 18}px, 0)`;
-    });
-}
-
-// Scroll Reveal
-const observerOptions = { threshold: 0.15 };
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("active");
+        if (!isDeleting && charIndex === currentRole.length) {
+            typeSpeed = 2000; // Pause at end
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            typeSpeed = 500;
         }
-    });
-}, observerOptions);
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-// Sticky Navbar & Nav Section Highlight
-const nav = document.getElementById('navbar');
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('.nav-link');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-        nav.classList.add('h-16');
-        nav.classList.remove('h-20');
-    } else {
-        nav.classList.remove('h-16');
-        nav.classList.add('h-20');
+        setTimeout(typeEffect, typeSpeed);
     }
-    let currentSection = '';
-    sections.forEach(s => {
-        const top = s.offsetTop;
-        if (pageYOffset >= top - 180) {
-            currentSection = s.getAttribute('id');
-        }
-    });
-    navLinks.forEach(l => {
-        l.classList.remove('active');
-        if (l.getAttribute('href') === `#${currentSection}`) {
-            l.classList.add('active');
-        }
-    });
-});
+    if (typedTextSpan) typeEffect();
 
-// Mobile Nav Toggle
-const mBtn = document.getElementById('mobileBtn');
-const mMenu = document.getElementById('mobileMenu');
-const l1 = document.getElementById('l1');
-const l2 = document.getElementById('l2');
-const l3 = document.getElementById('l3');
-const mLinks = document.querySelectorAll('.m-link');
-
-function toggleMenu() {
-    if (mMenu.classList.contains('opacity-0')) {
-        mMenu.classList.remove('opacity-0', 'pointer-events-none');
-        mMenu.classList.add('opacity-100', 'pointer-events-auto');
-        l1.style.transform = 'rotate(45deg) translate(5px, 5px)';
-        l2.style.opacity = '0';
-        l3.style.transform = 'rotate(-45deg) translate(4px, -5px)';
-        l3.style.width = '1.5rem';
-        document.body.style.overflow = 'hidden';
-    } else {
-        mMenu.classList.add('opacity-0', 'pointer-events-none');
-        mMenu.classList.remove('opacity-100', 'pointer-events-auto');
-        l1.style.transform = '';
-        l2.style.opacity = '1';
-        l3.style.transform = '';
-        l3.style.width = '1rem';
-        document.body.style.overflow = '';
-    }
-}
-if (mBtn) mBtn.addEventListener('click', toggleMenu);
-mLinks.forEach(l => l.addEventListener('click', () => { if (!mMenu.classList.contains('opacity-0')) toggleMenu(); }));
-
-// Projects Filter Logic
-const fBtns = document.querySelectorAll('.filter-btn');
-const pItems = document.querySelectorAll('#projectsGrid > div');
-fBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        fBtns.forEach(b => {
-            b.classList.remove('bg-emerald-500', 'text-neutral-950');
-            b.classList.add('text-neutral-600', 'dark:text-neutral-400');
-        });
-        btn.classList.add('bg-emerald-500', 'text-neutral-950');
-        const filter = btn.dataset.filter;
-        pItems.forEach(item => {
-            if (filter === 'all' || item.dataset.category === filter) {
-                item.style.display = 'flex';
-                setTimeout(() => item.style.opacity = '1', 50);
+    // 2. Theme Switcher Logic
+    const themeToggleBtn = document.getElementById('themeToggle');
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
             } else {
-                item.style.opacity = '0';
-                setTimeout(() => item.style.display = 'none', 300);
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
+
+    // 3. Custom Interactive Cursor
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorRing = document.getElementById('cursorRing');
+
+    if (window.innerWidth >= 1024 && cursorDot && cursorRing) {
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            cursorDot.style.transform = `translate3d(${posX - 4}px, ${posY - 4}px, 0)`;
+            cursorRing.style.transform = `translate3d(${posX - 18}px, ${posY - 18}px, 0)`;
+        });
+    }
+
+    // 4. Glow-card Mouse Tracking Effect
+    const glowCards = document.querySelectorAll('.glow-card');
+    glowCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+
+    // 5. Scroll Reveal Intersection Observer
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // 6. Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobileBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mLinks = document.querySelectorAll('.m-link');
+    const l1 = document.getElementById('l1');
+    const l2 = document.getElementById('l2');
+    const l3 = document.getElementById('l3');
+
+    let menuOpen = false;
+    function toggleMobileMenu() {
+        menuOpen = !menuOpen;
+        if (menuOpen) {
+            mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+            mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+            l1.style.transform = 'rotate(45deg) translate(5px, 5px)';
+            l2.style.opacity = '0';
+            l3.style.transform = 'rotate(-45deg) translate(3px, -4px)';
+            l3.style.width = '1.5rem';
+        } else {
+            mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+            mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+            l1.style.transform = 'none';
+            l2.style.opacity = '1';
+            l3.style.transform = 'none';
+            l3.style.width = '1rem';
+        }
+    }
+
+    if (mobileBtn) mobileBtn.addEventListener('click', toggleMobileMenu);
+    mLinks.forEach(link => link.addEventListener('click', toggleMobileMenu));
+
+    // 7. Active Nav Link on Scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 120;
+            if (window.scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
             }
         });
     });
-});
 
-// Contact Form Handler
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', e => {
-        e.preventDefault();
-        const toast = document.getElementById('toast');
-        toast.classList.add('show');
-        e.target.reset();
-        setTimeout(() => toast.classList.remove('show'), 4000);
+    // 8. Projects Filter Buttons Logic
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => {
+                b.classList.remove('bg-emerald-500', 'text-neutral-950', 'active');
+                b.classList.add('border', 'border-neutral-300', 'dark:border-neutral-800', 'text-neutral-600', 'dark:text-neutral-400');
+            });
+            btn.classList.add('bg-emerald-500', 'text-neutral-950', 'active');
+            btn.classList.remove('border', 'border-neutral-300', 'dark:border-neutral-800', 'text-neutral-600', 'dark:text-neutral-400');
+
+            const filter = btn.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                if (filter === 'all' || filter === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
     });
-}
+
+    // 9. Dynamic Random Dev Quote Generator (3rd Image Feature)
+    const devQuotes = [
+        { quote: "First, solve the problem. Then, write the code.", author: "John Johnson" },
+        { quote: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.", author: "Martin Fowler" },
+        { quote: "Experience is the name everyone gives to their mistakes.", author: "Oscar Wilde" },
+        { quote: "Simplicity is prerequisite for reliability.", author: "Edsger W. Dijkstra font-mono" },
+        { quote: "Make it work, make it right, make it fast.", author: "Kent Beck" },
+        { quote: "Software is a great combination between artistry and engineering.", author: "Bill Gates" }
+    ];
+
+    const quoteText = document.getElementById('quote-text');
+    const quoteAuthor = document.getElementById('quote-author');
+    const newQuoteBtn = document.getElementById('new-quote-btn');
+
+    function getRandomQuote() {
+        if (!quoteText || !quoteAuthor) return;
+        const randomIndex = Math.floor(Math.random() * devQuotes.length);
+        const selected = devQuotes[randomIndex];
+
+        quoteText.style.opacity = '0';
+        quoteAuthor.style.opacity = '0';
+
+        setTimeout(() => {
+            quoteText.textContent = `"${selected.quote}"`;
+            quoteAuthor.textContent = `— ${selected.author}`;
+            quoteText.style.opacity = '1';
+            quoteAuthor.style.opacity = '1';
+        }, 200);
+    }
+
+    if (newQuoteBtn) {
+        newQuoteBtn.addEventListener('click', getRandomQuote);
+    }
+
+    // 10. Contact Form Handling with Toast Notification
+    const contactForm = document.getElementById('contactForm');
+    const toast = document.getElementById('toast');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            contactForm.reset();
+
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3500);
+        });
+    }
+});
