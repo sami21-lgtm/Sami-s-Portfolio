@@ -15,6 +15,7 @@ html {
     background: #10b981;
     border-radius: 3px;
 }
+
 /* Grid Background */
 .grid-bg {
     background-size: 36px 36px;
@@ -27,12 +28,14 @@ html {
         linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), 
         linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
+
 /* Gradient Text */
 .text-gradient {
     background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 /* Glow Pulse Dot */
 @keyframes neonGlowPulse {
     0%, 100% {
@@ -47,24 +50,39 @@ html {
 .glow-pulse-dot {
     animation: neonGlowPulse 1.8s infinite ease-in-out;
 }
+
+/* Skill Matrix Glowing Block Segment Styling */
+.skill-block {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+.skill-block.active {
+    background: #10b981;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+    border: 1px solid #34d399;
+}
+.skill-block.inactive {
+    background: rgba(160, 160, 160, 0.2);
+    border: 1px solid rgba(160, 160, 160, 0.3);
+}
+.dark .skill-block.inactive {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 /* Scroll Mouse Dot Animation */
 @keyframes scrollDotAnim {
-    0% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    80% {
-        transform: translateY(12px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 0;
-    }
+    0% { transform: translateY(0); opacity: 1; }
+    80% { transform: translateY(12px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 0; }
 }
 .animate-scroll-dot {
     animation: scrollDotAnim 1.6s infinite cubic-bezier(0.65, 0, 0.35, 1);
 }
+
 /* Mouse Glow Effect for Cards */
 .glow-card {
     position: relative;
@@ -84,10 +102,9 @@ html {
 .glow-card:hover::before {
     opacity: 1;
 }
+
 /* Nav Links Underline */
-.nav-link {
-    position: relative;
-}
+.nav-link { position: relative; }
 .nav-link::after {
     content: '';
     position: absolute;
@@ -101,6 +118,7 @@ html {
 .nav-link:hover::after, .nav-link.active::after {
     width: 100%;
 }
+
 /* Custom Animations */
 @keyframes spinSlow {
     from { transform: rotate(0deg); }
@@ -132,7 +150,8 @@ html {
     opacity: 1;
     transform: translateY(0);
 }
-/* Custom Dynamic Mouse Cursor */
+
+/* Dynamic Custom Cursor */
 .cursor-dot {
     width: 8px;
     height: 8px;
@@ -156,7 +175,8 @@ html {
     z-index: 99998;
     transition: transform 0.15s ease-out;
 }
-/* Toast Message */
+
+/* Toast Notification */
 .toast {
     transform: translateY(100px);
     opacity: 0;
