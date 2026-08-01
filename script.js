@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let typeSpeed = isDeleting ? 40 : 80;
 
         if (!isDeleting && charIndex === currentRole.length) {
-            typeSpeed = 2000; // Pause at end
+            typeSpeed = 2000;
             isDeleting = true;
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
@@ -166,12 +166,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 9. Dynamic Random Dev Quote Generator (3rd Image Feature)
+    // 9. Dynamic Random Dev Quote Generator
     const devQuotes = [
         { quote: "First, solve the problem. Then, write the code.", author: "John Johnson" },
         { quote: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.", author: "Martin Fowler" },
         { quote: "Experience is the name everyone gives to their mistakes.", author: "Oscar Wilde" },
-        { quote: "Simplicity is prerequisite for reliability.", author: "Edsger W. Dijkstra font-mono" },
+        { quote: "Simplicity is prerequisite for reliability.", author: "Edsger W. Dijkstra" },
         { quote: "Make it work, make it right, make it fast.", author: "Kent Beck" },
         { quote: "Software is a great combination between artistry and engineering.", author: "Bill Gates" }
     ];
