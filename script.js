@@ -1,6 +1,5 @@
-// Theme Toggle Switcher (Guaranteed Working Fix)
+// Theme Toggle Switcher
 const themeToggleBtn = document.getElementById('themeToggle');
-
 if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', () => {
         const isDark = document.documentElement.classList.contains('dark');
@@ -21,7 +20,6 @@ const phrases = [
     "Software Engineering Student",
     "Robotics Enthusiast"
 ];
-
 let phraseIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -29,9 +27,7 @@ const typedTextSpan = document.getElementById("typed-text");
 
 function typeEffect() {
     if (!typedTextSpan) return;
-
     const currentPhrase = phrases[phraseIndex];
-
     if (isDeleting) {
         typedTextSpan.textContent = currentPhrase.substring(0, charIndex - 1);
         charIndex--;
@@ -39,9 +35,7 @@ function typeEffect() {
         typedTextSpan.textContent = currentPhrase.substring(0, charIndex + 1);
         charIndex++;
     }
-
     let typeSpeed = isDeleting ? 40 : 80;
-
     if (!isDeleting && charIndex === currentPhrase.length) {
         typeSpeed = 2000;
         isDeleting = true;
@@ -50,10 +44,8 @@ function typeEffect() {
         phraseIndex = (phraseIndex + 1) % phrases.length;
         typeSpeed = 500;
     }
-
     setTimeout(typeEffect, typeSpeed);
 }
-
 document.addEventListener("DOMContentLoaded", () => {
     setTimeout(typeEffect, 1000);
 });
@@ -72,7 +64,6 @@ document.querySelectorAll(".glow-card").forEach(card => {
 // Custom Cursor Following
 const dot = document.getElementById("cursorDot");
 const ring = document.getElementById("cursorRing");
-
 if (dot && ring) {
     window.addEventListener("mousemove", e => {
         dot.style.transform = `translate3d(${e.clientX - 4}px, ${e.clientY - 4}px, 0)`;
@@ -89,14 +80,12 @@ const observer = new IntersectionObserver((entries) => {
         }
     });
 }, observerOptions);
-
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
 // Sticky Nav & Link Highlight
 const nav = document.getElementById('navbar');
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav-link');
-
 window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
         nav.classList.add('h-16');
@@ -105,7 +94,6 @@ window.addEventListener('scroll', () => {
         nav.classList.remove('h-16');
         nav.classList.add('h-20');
     }
-
     let currentSection = '';
     sections.forEach(s => {
         const top = s.offsetTop;
@@ -113,7 +101,6 @@ window.addEventListener('scroll', () => {
             currentSection = s.getAttribute('id');
         }
     });
-
     navLinks.forEach(l => {
         l.classList.remove('active');
         if (l.getAttribute('href') === `#${currentSection}`) {
@@ -149,14 +136,12 @@ function toggleMenu() {
         document.body.style.overflow = '';
     }
 }
-
 if (mBtn) mBtn.addEventListener('click', toggleMenu);
 mLinks.forEach(l => l.addEventListener('click', () => { if (!mMenu.classList.contains('opacity-0')) toggleMenu(); }));
 
 // Projects Filter
 const fBtns = document.querySelectorAll('.filter-btn');
 const pItems = document.querySelectorAll('#projectsGrid > div');
-
 fBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         fBtns.forEach(b => {
@@ -164,7 +149,6 @@ fBtns.forEach(btn => {
             b.classList.add('text-neutral-600', 'dark:text-neutral-400');
         });
         btn.classList.add('bg-emerald-500', 'text-neutral-950');
-
         const filter = btn.dataset.filter;
         pItems.forEach(item => {
             if (filter === 'all' || item.dataset.category === filter) {
