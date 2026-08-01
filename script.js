@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(typeEffect, 1000);
 });
 
-// Card Glow Radial Mouse Tracking
+// Radial Glow Mouse Tracker
 document.querySelectorAll(".glow-card").forEach(card => {
     card.addEventListener("mousemove", e => {
         const rect = card.getBoundingClientRect();
@@ -61,7 +61,7 @@ document.querySelectorAll(".glow-card").forEach(card => {
     });
 });
 
-// Custom Cursor Following
+// Custom Cursor Smooth Tracker
 const dot = document.getElementById("cursorDot");
 const ring = document.getElementById("cursorRing");
 if (dot && ring) {
@@ -82,7 +82,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-// Sticky Nav & Link Highlight
+// Sticky Navbar & Nav Section Highlight
 const nav = document.getElementById('navbar');
 const sections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.nav-link');
@@ -109,7 +109,7 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Mobile Menu Toggle
+// Mobile Nav Toggle
 const mBtn = document.getElementById('mobileBtn');
 const mMenu = document.getElementById('mobileMenu');
 const l1 = document.getElementById('l1');
@@ -139,7 +139,7 @@ function toggleMenu() {
 if (mBtn) mBtn.addEventListener('click', toggleMenu);
 mLinks.forEach(l => l.addEventListener('click', () => { if (!mMenu.classList.contains('opacity-0')) toggleMenu(); }));
 
-// Projects Filter
+// Projects Filter Logic
 const fBtns = document.querySelectorAll('.filter-btn');
 const pItems = document.querySelectorAll('#projectsGrid > div');
 fBtns.forEach(btn => {
