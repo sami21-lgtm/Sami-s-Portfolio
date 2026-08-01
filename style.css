@@ -5,7 +5,6 @@
 html {
     scroll-behavior: smooth;
 }
-
 ::-webkit-scrollbar {
     width: 6px;
 }
@@ -16,29 +15,25 @@ html {
     background: #10b981;
     border-radius: 3px;
 }
-
-/* Dynamic Light & Dark Grid Background */
+/* Grid Background */
 .grid-bg {
     background-size: 36px 36px;
     background-image: 
         linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px), 
         linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
 }
-
 .dark .grid-bg {
     background-image: 
         linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), 
         linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
-
 /* Gradient Text */
 .text-gradient {
     background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
-/* Glow Pulse Dot for Available Status */
+/* Glow Pulse Dot */
 @keyframes neonGlowPulse {
     0%, 100% {
         box-shadow: 0 0 6px #10b981, 0 0 12px #10b981;
@@ -52,8 +47,7 @@ html {
 .glow-pulse-dot {
     animation: neonGlowPulse 1.8s infinite ease-in-out;
 }
-
-/* Scroll Mouse Dot Animation (Matching Image 1) */
+/* Scroll Mouse Dot Animation */
 @keyframes scrollDotAnim {
     0% {
         transform: translateY(0);
@@ -71,13 +65,11 @@ html {
 .animate-scroll-dot {
     animation: scrollDotAnim 1.6s infinite cubic-bezier(0.65, 0, 0.35, 1);
 }
-
 /* Mouse Glow Effect for Cards */
 .glow-card {
     position: relative;
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
-
 .glow-card::before {
     content: '';
     position: absolute;
@@ -89,11 +81,9 @@ html {
     opacity: 0;
     transition: opacity 0.3s ease;
 }
-
 .glow-card:hover::before {
     opacity: 1;
 }
-
 /* Nav Links Underline */
 .nav-link {
     position: relative;
@@ -111,7 +101,6 @@ html {
 .nav-link:hover::after, .nav-link.active::after {
     width: 100%;
 }
-
 /* Custom Animations */
 @keyframes spinSlow {
     from { transform: rotate(0deg); }
@@ -120,7 +109,6 @@ html {
 .animate-spin-slow {
     animation: spinSlow 15s linear infinite;
 }
-
 @keyframes floatAnim {
     0%, 100% { transform: translate(-50%, 0); }
     50% { transform: translate(-50%, -8px); }
@@ -128,7 +116,6 @@ html {
 .float-anim {
     animation: floatAnim 4s ease-in-out infinite;
 }
-
 .cursor-blink {
     animation: blink 1s infinite;
 }
@@ -136,7 +123,6 @@ html {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
-
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -146,7 +132,6 @@ html {
     opacity: 1;
     transform: translateY(0);
 }
-
 /* Custom Dynamic Mouse Cursor */
 .cursor-dot {
     width: 8px;
@@ -171,7 +156,6 @@ html {
     z-index: 99998;
     transition: transform 0.15s ease-out;
 }
-
 /* Toast Message */
 .toast {
     transform: translateY(100px);
