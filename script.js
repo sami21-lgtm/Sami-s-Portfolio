@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 1. Dynamic Cursor
     const cursorDot = document.getElementById("cursorDot");
     const cursorRing = document.getElementById("cursorRing");
+
     if (cursorDot && cursorRing) {
         window.addEventListener("mousemove", (e) => {
             cursorDot.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function type() {
         if (!typedTextSpan) return;
         const currentRole = roles[roleIndex];
+
         if (isDeleting) {
             typedTextSpan.textContent = currentRole.substring(0, charIndex - 1);
             charIndex--;
@@ -112,11 +114,11 @@ document.addEventListener("DOMContentLoaded", () => {
     filterBtns.forEach(btn => {
         btn.addEventListener("click", () => {
             filterBtns.forEach(b => {
-                b.classList.remove("active", "bg-red-600", "text-white");
+                b.classList.remove("active", "bg-emerald-500", "text-neutral-950");
                 b.classList.add("border", "border-neutral-300", "dark:border-neutral-800", "text-neutral-600", "dark:text-neutral-400");
             });
 
-            btn.classList.add("active", "bg-red-600", "text-white");
+            btn.classList.add("active", "bg-emerald-500", "text-neutral-950");
             btn.classList.remove("border", "border-neutral-300", "dark:border-neutral-800", "text-neutral-600", "dark:text-neutral-400");
 
             const filter = btn.getAttribute("data-filter");
