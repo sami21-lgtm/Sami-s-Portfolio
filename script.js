@@ -31,7 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
             typedTextSpan.textContent = currentRole.substring(0, charIndex + 1);
             charIndex++;
         }
+
         let typeSpeed = isDeleting ? 40 : 80;
+
         if (!isDeleting && charIndex === currentRole.length) {
             typeSpeed = 2000;
             isDeleting = true;
@@ -40,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
             roleIndex = (roleIndex + 1) % roles.length;
             typeSpeed = 500;
         }
+
         setTimeout(type, typeSpeed);
     }
     type();
@@ -60,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mobileBtn = document.getElementById("mobileBtn");
     const mobileMenu = document.getElementById("mobileMenu");
     const mLinks = document.querySelectorAll(".m-link");
+
     mobileBtn?.addEventListener("click", () => {
         const isOpen = !mobileMenu.classList.contains("opacity-0");
         if (isOpen) {
@@ -68,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
             mobileMenu.classList.remove("opacity-0", "pointer-events-none");
         }
     });
+
     mLinks.forEach(link => {
         link.addEventListener("click", () => {
             mobileMenu?.classList.add("opacity-0", "pointer-events-none");
@@ -103,15 +108,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // 7. Project Filter
     const filterBtns = document.querySelectorAll(".filter-btn");
     const projectCards = document.querySelectorAll(".project-card");
+
     filterBtns.forEach(btn => {
         btn.addEventListener("click", () => {
             filterBtns.forEach(b => {
                 b.classList.remove("active", "bg-red-600", "text-white");
                 b.classList.add("border", "border-neutral-300", "dark:border-neutral-800", "text-neutral-600", "dark:text-neutral-400");
             });
+
             btn.classList.add("active", "bg-red-600", "text-white");
             btn.classList.remove("border", "border-neutral-300", "dark:border-neutral-800", "text-neutral-600", "dark:text-neutral-400");
+
             const filter = btn.getAttribute("data-filter");
+
             projectCards.forEach(card => {
                 const category = card.getAttribute("data-category");
                 if (filter === "all" || filter === category) {
@@ -131,9 +140,11 @@ document.addEventListener("DOMContentLoaded", () => {
         { quote: "Make it work, make it right, make it fast.", author: "Kent Beck" },
         { quote: "Code is like humor. When you have to explain it, it’s bad.", author: "Cory House" }
     ];
+
     const quoteBtn = document.getElementById("new-quote-btn");
     const quoteText = document.getElementById("quote-text");
     const quoteAuthor = document.getElementById("quote-author");
+
     quoteBtn?.addEventListener("click", () => {
         const randomIndex = Math.floor(Math.random() * quotes.length);
         if (quoteText && quoteAuthor) {
@@ -151,6 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 9. Contact Form Toast
     const contactForm = document.getElementById("contactForm");
     const toast = document.getElementById("toast");
+
     contactForm?.addEventListener("submit", (e) => {
         e.preventDefault();
         if (toast) {
@@ -160,33 +172,5 @@ document.addEventListener("DOMContentLoaded", () => {
                 toast.classList.remove("show");
             }, 4000);
         }
-    });
-
-    // 10. SPIDER-MAN 2ND ANIMATION: WEB SHOOTING & 3D FLIP
-    const spideyWidget = document.getElementById("spideyWidget");
-    spideyWidget?.addEventListener("click", (e) => {
-        // Trigger 3D flip animation
-        spideyWidget.classList.add("flip");
-        
-        // Create Web Shooter Effect
-        const rect = spideyWidget.getBoundingClientRect();
-        const startX = rect.left + rect.width / 2;
-        const startY = rect.top + rect.height / 2;
-
-        const webLine = document.createElement("div");
-        webLine.className = "web-shoot-line";
-        webLine.style.left = `${startX}px`;
-        webLine.style.top = `${startY}px`;
-        
-        // Angle pointing towards center of screen
-        const angle = -45;
-        webLine.style.transform = `rotate(${angle}deg)`;
-
-        document.body.appendChild(webLine);
-
-        setTimeout(() => {
-            spideyWidget.classList.remove("flip");
-            webLine.remove();
-        }, 500);
     });
 });
