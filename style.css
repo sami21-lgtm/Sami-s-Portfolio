@@ -2,179 +2,172 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Base Smooth Scrolling */
 html {
     scroll-behavior: smooth;
 }
 
-/* Custom Scrollbar Styling */
 ::-webkit-scrollbar {
     width: 6px;
 }
-
 ::-webkit-scrollbar-track {
-    background: #090d0f;
+    background: transparent;
 }
-
 ::-webkit-scrollbar-thumb {
-    background: #10b981;
+    background: #ef4444;
     border-radius: 3px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #34d399;
-}
-
-/* Dynamic Grid Background Pattern */
+/* Spider-Man Grid Background */
 .grid-bg {
-    background-size: 32px 32px;
+    background-size: 36px 36px;
     background-image: 
-        linear-gradient(rgba(16, 185, 129, 0.05) 1px, transparent 1px), 
-        linear-gradient(90deg, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+        linear-gradient(rgba(239, 68, 68, 0.04) 1px, transparent 1px), 
+        linear-gradient(90deg, rgba(14, 165, 233, 0.04) 1px, transparent 1px);
+}
+.dark .grid-bg {
+    background-image: 
+        linear-gradient(rgba(239, 68, 68, 0.05) 1px, transparent 1px), 
+        linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
 }
 
-/* Glowing Pulse Dot Animation */
-@keyframes glowPulse {
+/* Spider Gradient Text */
+.text-gradient {
+    background: linear-gradient(135deg, #ef4444 0%, #0ea5e9 50%, #f43f5e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Neon Spider Glow Pulse Dot */
+@keyframes spideyGlowPulse {
     0%, 100% {
-        box-shadow: 0 0 10px #10b981, 0 0 20px #10b981;
+        box-shadow: 0 0 8px #ef4444, 0 0 16px #0ea5e9;
         transform: scale(1);
     }
     50% {
-        box-shadow: 0 0 4px #10b981, 0 0 8px #10b981;
+        box-shadow: 0 0 3px #ef4444, 0 0 6px #0ea5e9;
         transform: scale(0.85);
     }
 }
-
 .glow-pulse-dot {
-    animation: glowPulse 1.8s infinite ease-in-out;
+    animation: spideyGlowPulse 1.8s infinite ease-in-out;
 }
 
-/* Animation 1: Hanging & Dancing Spider-Man */
-@keyframes spideyDance {
-    0%, 100% {
-        transform: translateY(0) rotate(0deg) scale(1);
+/* Skill Matrix Glowing Block Segment Styling */
+.skill-block {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+@media (min-width: 640px) {
+    .skill-block {
+        width: 16px;
+        height: 16px;
+        border-radius: 4px;
     }
-    25% {
-        transform: translateY(-6px) rotate(-14deg) scale(1.08);
-    }
-    50% {
-        transform: translateY(4px) rotate(12deg) scale(0.95);
-    }
-    75% {
-        transform: translateY(-4px) rotate(-8deg) scale(1.02);
-    }
+}
+.skill-block.active {
+    background: #ef4444;
+    box-shadow: 0 0 6px rgba(239, 68, 68, 0.8), 0 0 12px rgba(14, 165, 233, 0.4);
+    border: 1px solid #0ea5e9;
+}
+.skill-block.inactive {
+    background: rgba(160, 160, 160, 0.2);
+    border: 1px solid rgba(160, 160, 160, 0.3);
+}
+.dark .skill-block.inactive {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.spider-wrapper {
-    position: relative;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    vertical-align: middle;
+/* Scroll Mouse Dot Animation */
+@keyframes scrollDotAnim {
+    0% { transform: translateY(0); opacity: 1; }
+    80% { transform: translateY(12px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 0; }
+}
+.animate-scroll-dot {
+    animation: scrollDotAnim 1.6s infinite cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-.spider-thread {
-    width: 1.5px;
-    height: 14px;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(16, 185, 129, 0.9));
-    margin: 0 auto;
-}
-
-.dancing-spiderman {
-    animation: spideyDance 2.8s ease-in-out infinite;
-    transform-origin: top center;
-    cursor: pointer;
-    transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-.dancing-spiderman:hover {
-    animation-play-state: paused;
-    transform: scale(1.3) rotate(0deg);
-}
-
-/* Animation 2: Floating Action Spider-Man Widget */
-.spidey-web-line {
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    width: 1.5px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.7);
-    transform: translateX(-50%);
-}
-
-.spidey-action-img {
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.spidey-action-img:hover {
-    transform: translateY(-10px) rotate(360deg) scale(1.25);
-}
-
-/* Interactive Web Shooting Ripple Effect */
-.web-shot-effect {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(16, 185, 129, 0.6) 50%, transparent 80%);
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    opacity: 0;
-    transition: all 0.5s ease-out;
-}
-
-.web-shot-effect.active {
-    width: 130px;
-    height: 130px;
-    opacity: 1;
-}
-
-/* Mouse Hover Dynamic Glow Cards */
+/* Card Mouse Red Glow Effect */
 .glow-card {
     position: relative;
-    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
-
 .glow-card::before {
     content: '';
     position: absolute;
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: radial-gradient(
-        500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-        rgba(16, 185, 129, 0.35), 
-        transparent 40%
-    );
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(239, 68, 68, 0.3), transparent 40%);
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
-
 .glow-card:hover::before {
     opacity: 1;
 }
 
-/* Scroll Reveal Elements */
+/* Nav Links Underline */
+.nav-link { position: relative; }
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ef4444;
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+/* Custom Animations */
+@keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+    animation: spinSlow 15s linear infinite;
+}
+
+@keyframes floatAnim {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, -8px); }
+}
+.float-anim {
+    animation: floatAnim 4s ease-in-out infinite;
+}
+
+.cursor-blink {
+    animation: blink 1s infinite;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
 .reveal {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Dynamic Glowing Cursor */
+/* Dynamic Custom Cursor */
 .cursor-dot {
     width: 8px;
     height: 8px;
-    background-color: #10b981;
+    background: #ef4444;
     border-radius: 50%;
     position: fixed;
     top: 0;
@@ -182,11 +175,10 @@ html {
     pointer-events: none;
     z-index: 99999;
 }
-
 .cursor-ring {
     width: 36px;
     height: 36px;
-    border: 1.5px solid rgba(16, 185, 129, 0.6);
+    border: 1.5px solid rgba(14, 165, 233, 0.8);
     border-radius: 50%;
     position: fixed;
     top: 0;
@@ -196,78 +188,111 @@ html {
     transition: transform 0.15s ease-out;
 }
 
-/* Typing Cursor Pulse Effect */
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+/* Toast Notification */
+.toast {
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
 }
 
-.cursor-blink {
-    animation: blink 0.8s infinite;
+/* =================================================== */
+/* 🕷️ 1ST ANIMATION: DANCING MINI SPIDER-MAN HANGING   */
+/* =================================================== */
+.spidey-hanging-wrapper {
+    position: absolute;
+    top: -10px;
+    right: 5%;
+    z-index: 30;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.web-thread {
+    width: 1.5px;
+    height: 60px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(14, 165, 233, 0.6));
+    box-shadow: 0 0 5px rgba(255,255,255,0.8);
+}
+.mini-spidey-dancing {
+    font-size: 26px;
+    line-height: 1;
+    transform-origin: top center;
+    animation: spideyDanceSwing 3s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.8));
+}
+@keyframes spideyDanceSwing {
+    0% { transform: rotate(-12deg) translateY(0); }
+    50% { transform: rotate(12deg) translateY(6px); }
+    100% { transform: rotate(-8deg) translateY(-3px); }
 }
 
-/* ==========================================================
-   Spider-Man Theme Mode (Replaces Light Mode with Red/Blue Theme)
-   ========================================================== */
-html.spider-mode body {
-    background-color: #0b0914;
-    color: #f3f4f6;
+/* =================================================== */
+/* 🕷️ 2ND ANIMATION: INTERACTIVE SPIDER-MAN WIDGET    */
+/* =================================================== */
+.spidey-action-widget {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 9990;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
-html.spider-mode ::-webkit-scrollbar-thumb {
+.spidey-action-widget:hover {
+    transform: scale(1.15) rotate(5deg);
+}
+.spidey-img-container {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(239,68,68,0.3) 0%, rgba(14,165,233,0.1) 70%);
+    border: 2px solid #ef4444;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.5), 0 0 25px rgba(14, 165, 233, 0.3);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-blur-md;
+}
+.spidey-sticker-img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+.spidey-action-widget.flip .spidey-sticker-img {
+    transform: rotateY(360deg) scale(1.1);
+}
+.spidey-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
     background: #ef4444;
+    color: #fff;
+    font-weight: 900;
+    font-size: 9px;
+    padding: 2px 6px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(239,68,68,0.8);
+    font-family: monospace;
 }
 
-html.spider-mode .grid-bg {
-    background-image: 
-        linear-gradient(rgba(239, 68, 68, 0.08) 1px, transparent 1px), 
-        linear-gradient(90deg, rgba(239, 68, 68, 0.08) 1px, transparent 1px);
+/* Web Shooting Flash Line */
+.web-shoot-line {
+    position: fixed;
+    pointer-events: none;
+    background: linear-gradient(90deg, #ffffff, #0ea5e9, transparent);
+    height: 3px;
+    z-index: 99999;
+    box-shadow: 0 0 10px #0ea5e9, 0 0 20px #ffffff;
+    transform-origin: left center;
+    animation: webShootAnim 0.4s ease-out forwards;
 }
-
-html.spider-mode .text-emerald-400 {
-    color: #ef4444 !important;
-}
-
-html.spider-mode .bg-emerald-500 {
-    background-color: #ef4444 !important;
-    color: #ffffff !important;
-}
-
-html.spider-mode .bg-emerald-500\/10 {
-    background-color: rgba(239, 68, 68, 0.15) !important;
-}
-
-html.spider-mode .border-emerald-500\/30,
-html.spider-mode .border-emerald-500\/40 {
-    border-color: rgba(239, 68, 68, 0.4) !important;
-}
-
-html.spider-mode .border-emerald-900\/40,
-html.spider-mode .border-emerald-900\/30,
-html.spider-mode .border-emerald-950 {
-    border-color: rgba(239, 68, 68, 0.25) !important;
-}
-
-html.spider-mode .spider-thread {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(239, 68, 68, 0.9));
-}
-
-html.spider-mode .glow-card::before {
-    background: radial-gradient(
-        500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-        rgba(239, 68, 68, 0.45), 
-        transparent 40%
-    );
-}
-
-html.spider-mode .cursor-dot {
-    background-color: #ef4444;
-}
-
-html.spider-mode .cursor-ring {
-    border-color: rgba(239, 68, 68, 0.8);
-}
-
-html.spider-mode .web-shot-effect {
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(239, 68, 68, 0.7) 50%, transparent 80%);
+@keyframes webShootAnim {
+    0% { opacity: 1; width: 0px; }
+    100% { opacity: 0; width: 500px; }
 }
